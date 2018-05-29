@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>互動式蛋白質呈現網站</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            html,body,div,img,input,textarea,select { margin: 0; padding: 0; border: 0; outline: none; }
+            html { width: 100%; height: 100%; overflow: hidden; }
+            body { width: 100%; height: 100%; overflow: hidden; background-color: #edf4ed; }
+             .head{
+                background-color:darkblue;color:white;font-weight:bold;font-size:30px;
+                text-align:center;padding:10px;
+            }
+            #container { position: absolute; left: 50%; right: 15%; top: 20%; bottom: 30%; box-sizing: border-box; border: solid 1px #e1e9e1;
+                         background: #ffffff; overflow: hidden; }
+
+        </style>
+    </head>
+    <body style="margin:0px;background-color:lightcyan;">
+        <div class="head">互動式蛋白質呈現網站</div>
+        Protein PDB: <input type="text" id="myProtein" value="5en9">
+        
+        <script type="text/javascript" src="test.js"></script>
+        <script type="text/javascript" src="lib/web3dmol.js"></script>
+        
+        
+        <button onclick="myFunction()">Generate 3D Protein</button>
+        
+        <script type="text/javascript">      
+               w3m.api.init('container', document.getElementById("myProtein").value, 0, config, color);
+        </script>
+        
+        <div id="container"></div>
+        
+    </body>
+</html>
