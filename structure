@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>互動式蛋白質呈現網站</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            html,body,div,img,input,textarea,select { margin: 0; padding: 0; border: 0; outline: none; }
+            html { width: 100%; height: 100%; overflow: hidden; }
+            body { width: 100%; height: 100%; overflow: hidden; background-color: #edf4ed; }
+            .topnav {overflow: hidden;background-color: blue;}
+            .topnav a {float: left;display: block;color: #f2f2f2;text-align: center;padding: 14px 16px;text-decoration: none;}
+            .topnav a:hover {background-color: #ddd;color: black;}
+            .content {background-color: #ddd; padding: 10px;height: 200px;}
+            .footer {background-color: #f1f1f1; padding: 10px;}
+            .head{background-color:darkblue;color:white;font-weight:bold;font-size:30px;text-align:center;padding:10px; }
+            .header {background-color: darkblue;color:white;font-weight:bold;font-size:30px;text-align: center;padding: 10px;}
+            #container { position: absolute; left: 15%; right: 15%; top: 11%; bottom: 40%; box-sizing: border-box; border: solid 1px #e1e9e1;background: #ffffff; overflow: hidden; }
+            #proteinInput{position: absolute; left: 1%; right: 40%; top: 60%; bottom: 50%;}
+            #btnGenerateProtein{position: absolute; left: 1%; right: 40%; top: 65%; bottom: 50%;}       
+           
+            table, td, th {border: 1px solid black;}
+            table {border-collapse: collapse;width: 30%;text-align: center; vertical-align: middle; }
+            #tbProtein{position: absolute; left: 1%; right: 40%; top: 70%; bottom: 50%;}
+      
+        </style>
+
+    </head>
+    <body style="margin:0px;background-color:lightcyan;">
+        <div class="header">互動式蛋白質呈現網站</div>
+        <script type="text/javascript" src="lib/web3dmol.js"></script>
+        <script type="text/javascript" src="functionjs.js"></script>
+
+
+        <div id ="container">
+            <iframe width=100% height=100% src="http://web3dmol.net/?id=1MBS&widget=1" frameborder=0 allowfullscreen></iframe>
+        </div>
+        <div id="proteinInput">Protein PDB: <input type="text" id="myProtein" value="1MBS"> </div>    
+        <div id="btnGenerateProtein"><button onclick="loadXMLDoc()">Generate Info</button></div>            
+       
+
+
+       <div class="topnav">
+            <a href="#" >Home</a>
+            <a href="structure.html">Structure </a>
+            <a href="blast.html" >Blast</a>
+            <a href="ligand.html" >Ligand</a>
+            <a href="contact.html" >Contact</a>
+        </div>
+        <div id ="tbProtein">
+            <table>
+                <tr>
+                    <th>Structure ID</th>
+                    <th id ="structureID"></th>    
+                </tr>
+                <tr>
+                    <td>Length</td>
+                    <td id="polymerL"></td>
+                </tr>
+                <tr>
+                    <td>Type</td>
+                    <td id="polymerT"></td>
+                </tr>
+                <tr>
+                    <td>Taxonomy</td>
+                    <td id="Taxonomy"></td>
+                </tr>
+                <tr>
+                    <td>macroMolecule</td>
+                    <td id="macromolecule"></td>
+                </tr>
+            </table>
+        </div>
+</html>
