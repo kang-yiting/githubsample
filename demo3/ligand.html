@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <title>互動式蛋白質呈現網站</title>
+
+        <style type="text/css">
+            #cont { position: absolute; height:400px;width: 1200px; box-sizing: border-box; border: solid 1px #e1e9e1;background: #ffffff; overflow: hidden;} 
+            //#proteinInput{position: absolute; left: 2%; right: 40%; top: 30%; bottom: 50%;}
+            //#btnGenerateProtein{position: absolute; left: 2%; right: 40%; top: 35%; bottom: 50%;}
+
+        </style>
+    </head>
+    <body>
+        <!-- 3DMol JavaScript,jQuery,Popper.js,Bootstrap JS-->
+        <script type="text/javascript" src="lib/web3dmol.js"></script>
+        <script type="text/javascript" src="ligand.js"></script>
+
+        <!------------------------------------------------------> 
+
+        <!----------------Navigation Bar--------------------->  
+
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+            <img src='./img/Logo.png'><a class="navbar-brand" style="font-family:Microsoft JhengHei;" href="./index.html">互動式蛋白質呈現網站</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="./motif.html">Motif</a>
+                    <a class="nav-item nav-link active" href="./ligand.html">Ligand</a>    
+                    <a class="nav-item nav-link" href="./mutation.html">Mutated Residue</a>     
+                    <a class="nav-item nav-link" href="https://web3dmol.net/">Web3DMol</a>
+                </div>
+            </div>
+        </nav>
+
+        <!------------------------------------------------------> 
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <!----------------Search Ligand---------------------> 
+
+        <div class="container align-center">
+            <h2>Ligand Search</h2>
+            <p >Search ligands bound to macromolecules in the PDB by their PBD ID.</p> 
+        </div>
+
+        <div class="container">
+            <div id="cont" ></div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div  id="proteinInput">Protein PDB: <input type="text" id="myProtein" value="1MBS"><button onclick="loadLigandSearch()">Search</button></div>
+            <div >
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Chemical ID</th>
+                            <th scope="col">Chemical Name</th>
+                            <th scope="col">Formula</th>
+                            <th scope="col">InChIKey</th> 
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+            w3m.api.init('cont', document.getElementById("myProtein").value, 0, config, color);
+            //w3m.api.loadPDB(document.getElementById("myProtein").value);
+            //w3m.api.representation(w3m.ATOM_MAIN, 105);
+
+        </script>
+        <br>
+
+
+
+
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
